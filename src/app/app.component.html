@@ -1,6 +1,18 @@
 Hello world
 
-<bm-more-button [templateRef]="moreContent">Show more</bm-more-button>
+<h2>Easy use</h2>
 
-<div #moreContent>I can be toggled!</div>
+<bm-more-button #easyToggle>Toggle</bm-more-button>
+<ng-container *bmMoreContainer="easyToggle">I can be toggled with a few simple lines</ng-container>
 
+<h2>Advanced use</h2>
+
+<bm-more-button #advancedToggle [(visible)]="isVisible">Show more</bm-more-button>
+
+<div *bmMoreContainer="advancedToggle">I can be toggled!</div>
+
+foo bar
+
+<div *bmMoreContainer="advancedToggle">I can be toggled too!</div>
+
+<div *ngIf="isVisible">I am toggled manually because I can</div>
